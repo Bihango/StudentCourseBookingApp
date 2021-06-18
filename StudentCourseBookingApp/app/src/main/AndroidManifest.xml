@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentCourseBookingApp">
-        <activity android:name=".manageCourse"></activity>
+        <activity android:name=".UpdateCourseActivity"></activity>
+        <activity android:name=".ViewCourses" />
+        <activity android:name=".manageCourse" />
         <activity android:name=".manageAccount" />
         <activity android:name=".postLogin" />
         <activity android:name=".MainActivity">
