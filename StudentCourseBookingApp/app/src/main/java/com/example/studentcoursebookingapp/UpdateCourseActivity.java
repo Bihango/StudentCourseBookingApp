@@ -12,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UpdateCourseActivity extends AppCompatActivity {
 
     // variables for our edit text, button, strings and dbhandler class.
-    private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
+    private EditText courseNameEdt, courseTracksEdt, courseCodeEdt, courseDescriptionEdt;
     private Button updateCourseBtn, deleteCourseBtn;
     private DBHandler dbHandler;
-    String courseName, courseDesc, courseDuration, courseTracks;
+    String courseName, courseDesc, courseCode, courseTracks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class UpdateCourseActivity extends AppCompatActivity {
         // initializing all our variables.
         courseNameEdt = findViewById(R.id.idEdtCourseName);
         courseTracksEdt = findViewById(R.id.idEdtCourseTracks);
-        courseDurationEdt = findViewById(R.id.idEdtCourseDuration);
+        courseCodeEdt = findViewById(R.id.idEdtCourseCode);
         courseDescriptionEdt = findViewById(R.id.idEdtCourseDescription);
         updateCourseBtn = findViewById(R.id.idBtnUpdateCourse);
         deleteCourseBtn = findViewById(R.id.idBtnDelete);
@@ -37,7 +37,7 @@ public class UpdateCourseActivity extends AppCompatActivity {
         // we passed in our adapter class.
         courseName = getIntent().getStringExtra("name");
         courseDesc = getIntent().getStringExtra("description");
-        courseDuration = getIntent().getStringExtra("duration");
+        courseCode = getIntent().getStringExtra("duration");
         courseTracks = getIntent().getStringExtra("tracks");
 
         // setting data to edit text
@@ -45,7 +45,7 @@ public class UpdateCourseActivity extends AppCompatActivity {
         courseNameEdt.setText(courseName);
         courseDescriptionEdt.setText(courseDesc);
         courseTracksEdt.setText(courseTracks);
-        courseDurationEdt.setText(courseDuration);
+        courseCodeEdt.setText(courseCode);
 
         // adding on click listener to our update course button.
         updateCourseBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +54,7 @@ public class UpdateCourseActivity extends AppCompatActivity {
 
                 // inside this method we are calling an update course
                 // method and passing all our edit text values.
-                dbHandler.updateCourse(courseName, courseNameEdt.getText().toString(), courseDescriptionEdt.getText().toString(), courseTracksEdt.getText().toString(), courseDurationEdt.getText().toString());
+                dbHandler.updateCourse(courseName, courseNameEdt.getText().toString(), courseDescriptionEdt.getText().toString(), courseTracksEdt.getText().toString(), courseCodeEdt.getText().toString());
 
                 // displaying a toast message that our course has been updated.
                 Toast.makeText(UpdateCourseActivity.this, "Course Updated..", Toast.LENGTH_SHORT).show();

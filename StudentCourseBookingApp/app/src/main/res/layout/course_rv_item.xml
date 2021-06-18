@@ -42,12 +42,12 @@
 
             <!--text view for our course duration-->
             <TextView
-                android:id="@+id/idTVCourseDuration"
+                android:id="@+id/idTVCourseCode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Duration"
+                android:text="Code"
                 android:textColor="@color/black" />
 
         </LinearLayout>

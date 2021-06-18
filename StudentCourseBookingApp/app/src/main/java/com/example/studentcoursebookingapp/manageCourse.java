@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class manageCourse extends AppCompatActivity {
 
     // creating variables for our edittext, button and dbhandler
-    private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
+    private EditText courseNameEdt, courseTracksEdt, courseCodeEdt, courseDescriptionEdt;
     private Button addCourseBtn, readCourseBtn;
     private DBHandler dbHandler;
 
@@ -25,7 +25,7 @@ public class manageCourse extends AppCompatActivity {
         // initializing all our variables.
         courseNameEdt = findViewById(R.id.idEdtCourseName);
         courseTracksEdt = findViewById(R.id.idEdtCourseTracks);
-        courseDurationEdt = findViewById(R.id.idEdtCourseDuration);
+        courseCodeEdt = findViewById(R.id.idEdtCourseCode);
         courseDescriptionEdt = findViewById(R.id.idEdtCourseDescription);
         addCourseBtn = findViewById(R.id.idBtnAddCourse);
         readCourseBtn = findViewById(R.id.idBtnReadCourse);
@@ -42,23 +42,23 @@ public class manageCourse extends AppCompatActivity {
                 // below line is to get data from all edit text fields.
                 String courseName = courseNameEdt.getText().toString();
                 String courseTracks = courseTracksEdt.getText().toString();
-                String courseDuration = courseDurationEdt.getText().toString();
+                String courseCode = courseCodeEdt.getText().toString();
                 String courseDescription = courseDescriptionEdt.getText().toString();
 
                 // validating if the text fields are empty or not.
-                if (courseName.isEmpty() && courseTracks.isEmpty() && courseDuration.isEmpty() && courseDescription.isEmpty()) {
+                if (courseName.isEmpty() && courseTracks.isEmpty() && courseCode.isEmpty() && courseDescription.isEmpty()) {
                     Toast.makeText(manageCourse.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // on below line we are calling a method to add new
                 // course to sqlite data and pass all our values to it.
-                dbHandler.addNewCourse(courseName, courseDuration, courseDescription, courseTracks);
+                dbHandler.addNewCourse(courseName, courseCode, courseDescription, courseTracks);
 
                 // after adding the data we are displaying a toast message.
                 Toast.makeText(manageCourse.this, "Course has been added.", Toast.LENGTH_SHORT).show();
                 courseNameEdt.setText("");
-                courseDurationEdt.setText("");
+                courseCodeEdt.setText("");
                 courseTracksEdt.setText("");
                 courseDescriptionEdt.setText("");
             }
